@@ -1,0 +1,44 @@
+*{
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body{
+  background: #40C4FF;
+}
+
+header{
+  background: #003459;
+  color: #fff;
+}
+
+/* Estilos de la página de admin */
+.botones{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* Estilos de la página alumnos */
+.informacion{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.conferencias{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Estilos de la página de Sesión */
+
+.entrar{
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+}

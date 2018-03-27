@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Inicio De Sesión</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+  <link rel="stylesheet" href="css/flexboxgrid.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/sistema.css">
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="center-md">SISTEMA DE REGISTRO</h1>
+    </div>
+  </header>
+<br>
+  <div class="container">
+    <div class="caja">
+      <form class="form-horizontal" action="procesos/validar.php" method="post">
+
+        <div class="form-group">
+          <div class="col-md-4">
+            <input type="text" class="form-control col-md-offset-12" name="usuario" value="" placeholder="Usuario" REQUIRED>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-4">
+            <input type="password" class="form-control col-md-offset-12" name="pass" value="" placeholder="Contraseña" REQUIRED>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-offset-5">
+              <button type="submit" class="btn btn-primary" name="button">Entrar</button>
+          </div>
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</html>
