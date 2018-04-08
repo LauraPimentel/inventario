@@ -142,7 +142,7 @@
        <label for="capacidad" class="control-label col-md-1 ">Capacidad:</label>
        <div class="col-md-2">
          <input type="number" name="capacidad" value="<?php echo $row['capacidad']?>" class="form-control" readonly>
-        <input type="number" name="lugar" value="1" class="form-control hidden">
+        <!-- <input type="number" name="lugar" value="1" class="form-control hidden"> -->
        </div>
 
      </div>
@@ -170,6 +170,37 @@
     </form>
 
     <b class="text-danger">Nota:</b><p>Para más información revisa tu correo donde se te darán más indicaciones.</p>
+
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="success">
+            <th colspan="2">Capacidad de los talleres</th>
+          </tr>
+        </thead>
+        <tr class="warning">
+          <th>Taller</th>
+          <th>Capacidad</th>
+        </tr>
+
+        <?php
+        include("../procesos/conexion.php");
+          $query = "SELECT taller,capacidad FROM talleres";
+          $resultado = $conexion->query($query);
+          while ($row = $resultado->fetch_assoc()) {
+            ?>
+
+            <tr>
+              <td class="success"><?php echo utf8_encode($row['taller']);?></td>
+              <td class="success"><?php echo utf8_encode($row['capacidad']);?></td>
+            </tr>
+
+            <?php
+          }
+         ?>
+      </table>
+
+    </div>
 
   </div>
 

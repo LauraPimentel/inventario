@@ -16,8 +16,10 @@ header{
 }
 
 /* Estilos de la página de admin */
-.botones{
+/* .form-group{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-}
+  flex-wrap: nowrap;
+  justify-content:space-around;
+
+} */

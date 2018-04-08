@@ -15,14 +15,17 @@ include("conexion.php");
   $fecha_registro = $_POST["fecha_registro"];
 
   $oficial = "INSERT INTO lista_oficial VALUES ('$RFC','$nombre','$apellido_p','$apellido_m','$taller_1','$taller_2','$taller_3','$conferencia','$insti_proce','$mail','$hora_registro','$fecha_registro')";
+  // $consulta = "()";
+
   $resultado = $conexion->query($oficial);
   $eliminar = "DELETE FROM datos_alum WHERE RFC = '$RFC'";
+
 
   if ($resultado) {
       $resultado2 = $conexion->query($eliminar);
     echo '<script>
       alert("El usuario ha sido agregado a la lista oficial");
-      window.location="../tablas/aceptados.php";
+      window.location="../tablas/lista_oficial.php";
     </script>';
 
   }

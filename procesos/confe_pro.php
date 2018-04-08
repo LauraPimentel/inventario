@@ -6,9 +6,9 @@
   $conferencia = $_POST["conferencia"];
   $lugar = $_POST["lugar"];
   $hora = $_POST["hora"];
-  $capacidad = $_POST["capacidad"];
+  // $capacidad = $_POST["capacidad"];
 
-  $consulta = "INSERT INTO conferencias VALUES ('$clave','$conferencia','$lugar','$hora','$capacidad')";
+  $consulta = "INSERT INTO conferencias VALUES ('$clave','$conferencia','$lugar','$hora')";
   $resultado = mysqli_query($conexion,$consulta);
 
   if ($resultado) {

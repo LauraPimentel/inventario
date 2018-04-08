@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
     <link rel="stylesheet" href="../css/flexboxgrid.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/sistema.css">
+    <link rel="stylesheet" href="../css/tablas.css">
     <link rel="shortcut icon" href="../favicon.ico">
   </head>
   <body>
@@ -39,6 +39,7 @@
         <th>Hora_ter</th>
         <th>Tallerista</th>
         <th>Capacidad</th>
+        <th>Inscritos</th>
         <th colspan="2">Operaciones</th>
       </tr>
 
@@ -46,9 +47,15 @@
             include("../procesos/conexion.php");
             $query = "SELECT * FROM talleres";
             $resultado = $conexion->query($query);
+            $consulta = "(SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Bootstrap' OR taller_2 = 'Bootstrap' OR taller_3 = 'Bootstrap') UNION
+            (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Angular' OR taller_2 = 'Angular' OR taller_3 = 'Angular') UNION
+            (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Tienda En Drupal' OR taller_2 = 'Tienda En Drupal' OR taller_3 = 'Tienda En Drupal') UNION
+            (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Programacion En Android' OR taller_2 = 'Programacion En Android' OR taller_3 = 'Programacion En Android')";
+            $resultado2 = $conexion->query($consulta);
+            while(($row = $resultado->fetch_assoc()) && ($nuevo = $resultado2->fetch_assoc())){
 
-            while($row = $resultado->fetch_assoc()){
               ?>
+
 
               <tr>
 
@@ -60,12 +67,14 @@
                 <td><?php echo utf8_encode($row['hora_ter']);?></td>
                 <td><?php echo utf8_encode($row['tallerista']);?></td>
                 <td><?php echo utf8_encode($row['capacidad']);?></td>
-                <td><a href="../formulario/modificar_taller.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-info btn-block">Modificar</a></td>
+                <td><?php echo $nuevo['Inscritos'] ?></td>
+                <td><a href="../formulario/editar_taller.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-info btn-block">Modificar</a></td>
                 <td><a href="../formulario/eliminar_taller.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-danger btn-block">Eliminar</a></td>
 
               </tr>
 
               <?php
+            
             }
           ?>
 

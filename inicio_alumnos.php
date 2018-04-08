@@ -92,10 +92,10 @@ while($row = $resultado->fetch_assoc()){
         <div class="thumbnail">
           <img src="<?php echo $row['imagen']; ?>">
           <div class="caption">
-          <h5><?php echo utf8_encode($row['lugar']);?></h5>
+          <h5><?php echo utf8_encode($row['clave']);?></h5>
            <h4><?php echo utf8_encode( $row['conferencia']); ?></h4>
            <p>Fecha: <?php echo $row['hora']; ?></p>
-           <p>Lugar: <?php echo $row['clave']; ?></p>
+           <p>Lugar: <?php echo $row['lugar']; ?></p>
            <a href="../procesos/detalles_todos.php?ID_pro=<?php echo $row['ID_pro']; ?>" class="btn btn-info">Ver detalles</a>
           </div>
         </div>

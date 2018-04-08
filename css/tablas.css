@@ -14,10 +14,3 @@ header{
   background: #003459;
   color: #fff;
 }
-
-/* Estilos de la página de admin */
-.botones{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
