@@ -51,9 +51,10 @@
       </script>';
 
     }
+
     else{
       echo '<script>
-        alert("Error");
+        alert("Error al guardar datos");
         window.history.go(-1);
       </script>';
     }

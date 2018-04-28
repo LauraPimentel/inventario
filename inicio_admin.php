@@ -28,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="inicio_alumnos.php" class="navbar-brand">SISTEMA</a>
+            <a href="inicio_admin.php" class="navbar-brand">SISTEMA</a>
             <!-- <img src="imagenes/logo.png" width="50" alt=""> -->
           </div>
 
@@ -62,7 +62,7 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="tablas/alumnos_registrados.php">Alumnos Registrados</a></li>
+                  <li><a href="tablas/alumnos_registrados.php">Alumnos Pregistrados</a></li>
                   <li class="divider"></li>
                   <li><a href="tablas/talleres.php">Talleres Registrados</a></li>
                   <li class="divider"></li>
@@ -94,6 +94,19 @@
                   <input type="text" class="form-control" name="taller" value="" placeholder="Taller...">
                 </div>
               </form>
+
+
+              <li class="dropdown">
+                <a href="#"class="dropdown-toggle" data-toggle="dropdown" role="button">
+                  Gráficas <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="graficas/alumnos_pre.php">Alumnos Pregistrados</a></li>
+                  <li class="divider"></li>
+                  <li><a href="graficas/alumnos_taller.php">Alumnos Registrados</a></li>
+                </ul>
+              </li>
 
             </ul>
 

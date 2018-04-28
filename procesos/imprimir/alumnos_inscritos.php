@@ -3,7 +3,7 @@
   require_once('../lib/pdf/mpdf.php');
 
   include("../conexion.php");
-  $query = "SELECT * FROM datos_alum";
+  $query = "SELECT * FROM lista_oficial";
   ini_set('date.timezone', 'America/Mexico_City');
   $fecha = date('d-m-Y', time());
   $prepare = $conexion->prepare($query);

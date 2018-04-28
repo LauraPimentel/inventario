@@ -30,7 +30,7 @@ $(function () {
             }
         },
         title: {
-            text: 'ALUMNOS REGISTRADOS POR TALLERES'
+            text: 'ALUMNOS PREGISTRADOS POR TALLERES'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -54,10 +54,10 @@ $(function () {
               <?php
               $sql = "SELECT taller FROM talleres";
               $resultado = $conexion->query($sql);
-              $consulta = "(SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Bootstrap' OR taller_2 = 'Bootstrap' OR taller_3 = 'Bootstrap') UNION
-              (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Angular' OR taller_2 = 'Angular' OR taller_3 = 'Angular') UNION
-              (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Tienda En Drupal' OR taller_2 = 'Tienda En Drupal' OR taller_3 = 'Tienda En Drupal') UNION
-              (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Programacion En Android' OR taller_2 = 'Programacion En Android' OR taller_3 = 'Programacion En Android')";
+              $consulta = "(SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Bootstrap' OR taller_2 = 'Bootstrap' OR taller_3 = 'Bootstrap') UNION
+              (SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Angular' OR taller_2 = 'Angular' OR taller_3 = 'Angular') UNION
+              (SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Tienda En Drupal' OR taller_2 = 'Tienda En Drupal' OR taller_3 = 'Tienda En Drupal') UNION
+              (SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Programacion En Android' OR taller_2 = 'Programacion En Android' OR taller_3 = 'Programacion En Android')";
               $resultado2 = $conexion->query($consulta);
               while(($row = $resultado->fetch_assoc()) && ($nuevo = $resultado2->fetch_assoc())){
 
