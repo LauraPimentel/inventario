@@ -78,7 +78,7 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Gafetes</a></li>
+                  <li><a href="formulario/para_gafete.php" target="_blank">Gafetes</a></li>
                   <li class="divider"></li>
                   <li><a href="procesos/imprimir/alumnos_inscritos.php" target="_blank">Alumnos Inscritos</a></li>
 

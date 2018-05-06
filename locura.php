@@ -1,24 +1,14 @@
 <?php
 
 include('procesos/conexion.php');
+$taller_1 = 'Bootstrap';
 
-$query = "(SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Bootstrap' OR taller_2 = 'Bootstrap' OR taller_3 = 'Bootstrap') UNION
-(SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Angular' OR taller_2 = 'Angular' OR taller_3 = 'Angular') UNION
-(SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Tienda En Drupal' OR taller_2 = 'Tienda En Drupal' OR taller_3 = 'Tienda En Drupal') UNION
-(SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Programacion En Android' OR taller_2 = 'Programacion En Android' OR taller_3 = 'Programacion En Android')";
+$sql = "SELECT capacidad FROM talleres WHERE taller = $taller_1";
+$resultado = $conexion->query($sql);
+$fetch = mysqli_fetch_array($resultado);
 
-$resultado = $conexion->query($query);
-while($row = $resultado->fetch_assoc()){
-
-?>
-
-<p>Alumnos: <?php echo $row['Inscritos']; ?></p>
+echo $fetch['resultado'];
 
 
 
-<br>
-
- <?php
-   }
-
-?>
+ ?>

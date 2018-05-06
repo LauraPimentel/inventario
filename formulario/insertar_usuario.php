@@ -71,9 +71,10 @@
           <option value="0">Selección:</option>
           <?php
               include("../procesos/conexion.php");
-          $query = $conexion -> query ("SELECT clave,taller FROM talleres");
-          while ($valores = mysqli_fetch_array($query)) {
-             echo '<option value="'.$valores[taller].'">'.utf8_encode($valores[taller]).'</option>';
+          $query = $conexion -> query ("SELECT taller FROM talleres");
+          $consulta = $conexion -> query ("SELECT capacidad FROM jornada1 WHERE capacidad >= 1");
+          while (($valores = mysqli_fetch_array($query)) && ($nuevo = mysqli_fetch_array($consulta))) {
+             echo '<option value="'.$valores[taller].'">'.utf8_encode($valores[taller]).' || Capacidad: '.$nuevo[capacidad].'</option>';
           }
         ?>
         </select>
@@ -83,9 +84,10 @@
           <option value="0">Selección:</option>
           <?php
               include("../procesos/conexion.php");
-          $query = $conexion -> query ("SELECT clave,taller FROM talleres");
-          while ($valores = mysqli_fetch_array($query)) {
-             echo '<option value="'.$valores[taller].'">'.utf8_encode($valores[taller]).'</option>';
+          $query = $conexion -> query ("SELECT taller FROM talleres");
+            $consulta = $conexion -> query ("SELECT capacidad FROM jornada2 WHERE capacidad >= 1");
+          while (($valores = mysqli_fetch_array($query)) && ($nuevo = mysqli_fetch_array($consulta))) {
+             echo '<option value="'.$valores[taller].'">'.utf8_encode($valores[taller]).' || Capacidad: '.$nuevo[capacidad].'</option>';
           }
         ?>
         </select>
@@ -95,9 +97,10 @@
           <option value="0">Selección:</option>
           <?php
               include("../procesos/conexion.php");
-          $query = $conexion -> query ("SELECT clave,taller FROM talleres");
-          while ($valores = mysqli_fetch_array($query)) {
-             echo '<option value="'.$valores[taller].'">'.utf8_encode($valores[taller]).'</option>';
+          $query = $conexion -> query ("SELECT taller FROM talleres");
+            $consulta = $conexion -> query ("SELECT capacidad FROM jornada3 WHERE capacidad >= 1");
+          while (($valores = mysqli_fetch_array($query)) && ($nuevo = mysqli_fetch_array($consulta))) {
+             echo '<option value="'.$valores[taller].'">'.utf8_encode($valores[taller]).' || Capacidad: '.$nuevo[capacidad].'</option>';
           }
         ?>
         </select>
@@ -139,11 +142,11 @@
          <input type="email" name="conf_mail" class="form-control" REQUIRED>
        </div>
 
-       <label for="capacidad" class="control-label col-md-1 ">Capacidad:</label>
+       <!-- <label for="capacidad" class="control-label col-md-1 ">Capacidad:</label>
        <div class="col-md-2">
          <input type="number" name="capacidad" value="<?php echo $row['capacidad']?>" class="form-control" readonly>
-        <!-- <input type="number" name="lugar" value="1" class="form-control hidden"> -->
-       </div>
+        <input type="number" name="lugar" value="1" class="form-control hidden">
+       </div> -->
 
      </div>
 

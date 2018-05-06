@@ -32,9 +32,8 @@
           <th>Conferencia</th>
           <th>Institución</th>
           <th>E-mail</th>
-          <th>Hora Registro</th>
-          <th>Fecha Registro</th>
-          <th>Estado</th>
+
+
         </tr>
       </thead>
       <tbody>';
@@ -50,12 +49,40 @@
                   <td>'.$datos['conferencia'].'</td>
                   <td>'.$datos['insti_proce'].'</td>
                   <td>'.$datos['mail'].'</td>
-                  <td>'.$datos['hora_registro'].'</td>
-                  <td>'.$datos['fecha_registro'].'</td>
-                  <td>'.$datos['estado'].'</td>
+    
                 </tr>';
 
       }
+
+      // include("../conexion.php");
+      // $consulta = "(SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Bootstrap' OR taller_2 = 'Bootstrap' OR taller_3 = 'Bootstrap') UNION
+      // (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Angular' OR taller_2 = 'Angular' OR taller_3 = 'Angular') UNION
+      // (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Tienda En Drupal' OR taller_2 = 'Tienda En Drupal' OR taller_3 = 'Tienda En Drupal') UNION
+      // (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Programacion En Android' OR taller_2 = 'Programacion En Android' OR taller_3 = 'Programacion En Android')";
+      // $prepare2 = $conexion->prepare($consulta);
+      // $prepare2->execute();
+      // $resulSet = $prepare2->get_result();
+      // while($total[] = $resulSet->fetch_array());
+      // $resulSet->close();
+      // $prepare2->close();
+      // $conexion->close();
+      //
+      // $sql = "SELECT taller FROM talleres";
+      // $resultado = $conexion->query($sql);
+      // $prepare3->execute();
+      // $resulSet = $prepare3->get_result();
+      // while($top[] = $resulSet->fetch_array());
+      // $resulSet->close();
+      // $prepare3->close();
+      // $conexion->close();
+      //
+      // foreach ($total as $total) {
+      //   $html .= '<tr>
+      //             <td class="service">'.$top['taller'].','.$total['Inscritos'].'</td>
+      //
+      //           </tr>';
+      //
+      // }
 
 $html .= '
 </tbody>
