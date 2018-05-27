@@ -31,12 +31,6 @@
 
   }
 
-$html .= '
-
-  </main>
-  <footer>
-    La lista esta sujeta a cambios.
-  </footer>';
 
   $mpdf = new mPDF('c', 'A7');
   $css = file_get_contents('css/style.css');

@@ -32,29 +32,14 @@
   ini_set("sendmail_from",$mail);
 
   $consulta = "INSERT INTO datos_alum (RFC,nombre,apellido_p,apellido_m,taller_1,taller_2,taller_3,conferencia,insti_proce,mail,conf_mail,hora_registro,fecha_registro) VALUES (UPPER('$RFC'),UPPER('$nombre'),UPPER('$apellido_p'),UPPER('$apellido_m'),'$taller_1','$taller_2','$taller_3','$conferencia',UPPER('$insti_proce'),'$mail','$conf_mail','$hora_registro','$fecha_registro')";
-  // $query = "UPDATE talleres SET capacidad = '$espacio' WHERE taller_1 = '$taller_1' OR taller_2 = '$taller_2' OR taller_3 = '$taller_3'";
-  // Capacidades de los TALLERES
-  $cap_1 = "SELECT capacidad FROM talleres WHERE clave = '01PR'";
-  $resultado2 = mysqli_query($conexion, $cap_1);
-  $cap_2 = "SELECT capacidad FROM talleres WHERE clave = '02SE'";
-  $resultado3 = mysqli_query($conexion, $cap_2);
-  $cap_3 = "SELECT capacidad FROM talleres WHERE clave = '03TE'";
-  $resultado4 = mysqli_query($conexion, $cap_3);
-  $cap_4 = "SELECT capacidad FROM talleres WHERE clave = '04CU'";
-  $resultado5 = mysqli_query($conexion, $cap_4);
+  $jornada_1 = "INSERT INTO jornada1_alumnos (RFC,nombre,apellido_p,apellido_m,taller_1,taller_2,taller_3,conferencia,insti_proce,mail,conf_mail,hora_registro,fecha_registro) VALUES (UPPER('$RFC'),UPPER('$nombre'),UPPER('$apellido_p'),UPPER('$apellido_m'),'$taller_1','$taller_2','$taller_3','$conferencia',UPPER('$insti_proce'),'$mail','$conf_mail','$hora_registro','$fecha_registro')";
+  $jornada_2 = "INSERT INTO jornada2_alumnos (RFC,nombre,apellido_p,apellido_m,taller_1,taller_2,taller_3,conferencia,insti_proce,mail,conf_mail,hora_registro,fecha_registro) VALUES (UPPER('$RFC'),UPPER('$nombre'),UPPER('$apellido_p'),UPPER('$apellido_m'),'$taller_1','$taller_2','$taller_3','$conferencia',UPPER('$insti_proce'),'$mail','$conf_mail','$hora_registro','$fecha_registro')";
+  $jornada_3 = "INSERT INTO jornada3_alumnos (RFC,nombre,apellido_p,apellido_m,taller_1,taller_2,taller_3,conferencia,insti_proce,mail,conf_mail,hora_registro,fecha_registro) VALUES (UPPER('$RFC'),UPPER('$nombre'),UPPER('$apellido_p'),UPPER('$apellido_m'),'$taller_1','$taller_2','$taller_3','$conferencia',UPPER('$insti_proce'),'$mail','$conf_mail','$hora_registro','$fecha_registro')";
 
-  // resta
-  $resta1 = ($cap_1) - ($lugar);
-  $resta2 = ($cap_2) - ($lugar);
-  $resta3 = ($cap_3) - ($lugar);
-  $resta4 = ($cap_4) - ($lugar);
-
-
-  $query = "UPDATE talleres SET capacidad = '$resta1' WHERE  clave = '01PR'";
-  $query_2 = "UPDATE talleres SET capacidad = '$resta2' WHERE clave = '02SE'";
-  $query_3 = "UPDATE talleres SET capacidad = '$resta3' WHERE clave = '03TE'";
-  $query_4= "UPDATE talleres SET capacidad = '$resta4' WHERE clave = '04CU'";
-
+  // Restar el espacio
+ $res1 = "UPDATE jornada1 SET capacidad = capacidad - 1 WHERE taller = '$taller_1'";
+ $res2 = "UPDATE jornada2 SET capacidad = capacidad - 1 WHERE taller = '$taller_2'";
+ $res3 = "UPDATE jornada3 SET capacidad = capacidad - 1 WHERE taller = '$taller_3'";
 
   // Enviar el correo
   $contenido = "Nombre: ".strtoupper($nombre)." ".strtoupper($apellido_p)." ".strtoupper($apellido_m)."\nLos talleres seleccionados son: ".$taller_1.", " .$taller_2.", " .$taller_3."\nLa conferencia es: ".$conferencia."\nCuenta con un lapso de 3 días para hacer su depósito. En la cuenta 6342810340 BANCO SANTANDER.
@@ -63,14 +48,15 @@
   // Verificar correo
   if($mail==$conf_mail){
     $resultado = mysqli_query($conexion, $consulta);
+    $resultadojor = mysqli_query($conexion, $jornada_1);
+    $resultadojo2 = mysqli_query($conexion, $jornada_2);
+    $resultadojor3 = mysqli_query($conexion, $jornada_3);
     // mail($mail, "Contacto", $contenido);
-    // $resultado2 = mysqli_query($conexion, $query);
 
-
-    $resultado6 = mysqli_query($conexion, $query);
-    $resultado7 = mysqli_query($conexion, $query_2);
-    $resultado8 = mysqli_query($conexion, $query_3);
-    $resultado9 = mysqli_query($conexion, $query_4);
+    // restas
+    $resultado1 = $conexion->query($res1);
+    $resultado2 = $conexion->query($res2);
+    $resultado3 = $conexion->query($res3);
 
     if($resultado) {
       echo '<script>

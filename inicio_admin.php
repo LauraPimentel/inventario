@@ -85,6 +85,12 @@
                   <!-- <li><a href="#">Alumnos por taller</a></li> -->
                   <li class="divider"></li>
                   <li><a href="formulario/preregistro.php" target="_blank">Preregistro</a></li>
+                  <li class="divider"></li>
+                  <li><a href="procesos/imprimir/jornada1.php" target="_blank">Jornada 1</a></li>
+                  <li class="divider"></li>
+                  <li><a href="procesos/imprimir/jornada2.php" target="_blank">Jornada 2</a></li>
+                  <li class="divider"></li>
+                  <li><a href="procesos/imprimir/jornada3.php" target="_blank">Jornada 3</a></li>
                 </ul>
               </li>
 

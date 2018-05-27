@@ -1,14 +1,22 @@
 <?php
-
+$taller_1 = 'Angular';
 include('procesos/conexion.php');
-$taller_1 = 'Bootstrap';
+$consulta = "UPDATE jornada1 SET capacidad = capacidad - 1 WHERE taller = '$taller_1'";
+$resultado = $conexion->query($consulta);
 
-$sql = "SELECT capacidad FROM talleres WHERE taller = $taller_1";
-$resultado = $conexion->query($sql);
-$fetch = mysqli_fetch_array($resultado);
+if ($resultado) {
+  echo '<script>
+    alert("Datos Actualizados");
 
-echo $fetch['resultado'];
+  </script>';
+}
 
+else{
+echo '<script>
+  alert("Error al modificar");
+
+</script>';
+}
 
 
  ?>

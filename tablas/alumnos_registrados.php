@@ -33,7 +33,7 @@
                </form>
 
             </th>
-            <th colspan="13">Alumnos Registrados</th>
+            <th colspan="13">Alumnos Pregistrados</th>
           </tr>
         </thead>
       <tr class="success">
@@ -76,7 +76,7 @@
 
               else {
                // echo $nombre." Fecha ".$fecha_registro." pendiente ".$fecha_actual."<br>";
-               $respuesta2 = mysqli_query($conexion, $consulta2);
+               $respuesta2 = mysqli_query($conexion, $consulta);
               }
               ?>
 
@@ -107,7 +107,7 @@
      </table>
 
     </div>
-    
+
 
   <!-- </div> -->
 <br>
