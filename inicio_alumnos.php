@@ -55,7 +55,7 @@
 
       <?php
       include("procesos/conexion.php");
-      $query = "SELECT * FROM talleres";
+      $query = "SELECT * FROM jornada1";
       $resultado = $conexion->query($query);
 
       while($row = $resultado->fetch_assoc()){

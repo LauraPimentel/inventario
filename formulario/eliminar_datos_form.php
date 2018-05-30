@@ -2,7 +2,7 @@
 <html>
   <head lang="es">
     <meta charset="utf-8">
-    <title>Modificar Datos</title>
+    <title>Eliminar Datos</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
     <link rel="stylesheet" href="../css/flexboxgrid.min.css">
@@ -26,37 +26,37 @@
 
     <header>
       <div class="container">
-        <h1 class="center-md">Datos De Usuario</h1>
+        <h1 class="center-md">¿Desea eliminar este usuario?</h1>
       </div>
     </header>
 <br>
   <div class="container">
 
-  <form class="form-horizontal" action="../procesos/modificar_datos_pro.php" method="post">
+  <form class="form-horizontal" action="../procesos/eliminar_alumno_pre.php" method="post">
 
 
 
       <div class="form-group">
         <label for="RFC" class="control-label col-md-1 ">RFC:</label>
         <div class="col-md-3">
-          <input type="text" name="RFC" class="form-control" value="<?php echo $row['RFC']; ?>" maxlength="13" REQUIRED>
+          <input type="text" name="RFC" class="form-control" value="<?php echo $row['RFC']; ?>" maxlength="13" readonly>
         </div>
       </div>
 
       <div class="form-group">
         <label for="nombre" class="control-label col-md-1 ">Nombre:</label>
         <div class="col-md-2">
-          <input type="text" name="nombre" class="form-control" value="<?php echo $row['nombre']; ?>" REQUIRED>
+          <input type="text" name="nombre" class="form-control" value="<?php echo $row['nombre']; ?>" readonly>
         </div>
 
         <label for="apellido_p" class="control-label col-md-2 ">Apellido Paterno:</label>
         <div class="col-md-2">
-          <input type="text" name="apellido_p" class="form-control" value="<?php echo $row['apellido_p']; ?>" REQUIRED>
+          <input type="text" name="apellido_p" class="form-control" value="<?php echo $row['apellido_p']; ?>" readonly>
         </div>
 
         <label for="apellido_m" class="control-label col-md-2 ">Apellido Materno:</label>
         <div class="col-md-2">
-          <input type="text" name="apellido_m" class="form-control" value="<?php echo $row['apellido_m']; ?>" REQUIRED>
+          <input type="text" name="apellido_m" class="form-control" value="<?php echo $row['apellido_m']; ?>" readonly>
         </div>
 
       </div>
@@ -66,34 +66,32 @@
       <div class="form-group">
         <label for="taller_1" class="control-label col-md-1 ">Taller 1:</label>
         <div class="col-md-3">
-          <input type="text" name="taller_1" class="form-control" value="<?php echo $row['taller_1']; ?>">
+          <input type="text" class="form-control" name="taller_1" value="<?php echo $row['taller_1']; ?>" readonly>
         </div>
 
         <label for="taller_2" class="control-label col-md-1 ">Taller 2:</label>
         <div class="col-md-3">
-          <input type="text" name="taller_2" class="form-control" value="<?php echo $row['taller_2']; ?>">
+          <input type="text" class="form-control" name="taller_2" value="<?php echo $row['taller_2']; ?>" readonly>
         </div>
 
         <label for="taller_3" class="control-label col-md-1 ">Taller 3:</label>
         <div class="col-md-3">
-          <input type="text" name="taller_3" class="form-control" value="<?php echo $row['taller_3']; ?>">
+          <input type="text" class="form-control" name="taller_3" value="<?php echo $row['taller_3']; ?>" readonly>
         </div>
 
       </div>
 
 
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="conferencia" class="control-label col-md-1 ">Conferencia:</label>
         <div class="col-md-5">
-          <div class="col-md-6">
-            <input type="text" name="conferencia" class="form-control" value="<?php echo $row['conferencia']; ?>">
-          </div>
+        <input type="text" class="form-control" name="" value="<?php echo $row['conferencia']; ?>" readonly>
         </div>
 
         <label for="insti_proce" class="control-label col-md-3">Institución de Procedencia:</label>
         <div class="col-md-3">
-          <input type="text" name="insti_proce" class="form-control" value="<?php echo $row['insti_proce']; ?>" REQUIRED>
+          <input type="text" name="insti_proce" class="form-control" value="<?php echo $row['insti_proce']; ?>" readonly>
         </div>
      </div>
 
@@ -101,28 +99,24 @@
      <div class="form-group">
        <label for="mail" class="control-label col-md-1 ">E-mail:</label>
        <div class="col-md-3">
-         <input type="email" name="mail" class="form-control" value="<?php echo $row['mail']; ?>" REQUIRED>
+         <input type="email" name="mail" class="form-control" value="<?php echo $row['mail']; ?>" readonly>
        </div>
 
-       <label for="conf_mail" class="control-label col-md-2 ">Confirmación de E-mail:</label>
-       <div class="col-md-3">
-         <input type="email" name="conf_mail" class="form-control" value="<?php echo $row['conf_mail']; ?>" REQUIRED>
-       </div>
+
 
      </div>
 
      <div class="form-group">
        <label for="estado" class="control-label col-md-1 ">Estado:</label>
-       <select class="form-control col-md-3" name="estado" REQUIRED>
-         <option value="Pendiente">Pendiente</option>
-         <option value="Pagado">Pagado</option>
-       </select>
-     </div>
+      <div class="col-md-3">
+        <input type="text" name="estado" class="form-control" value="<?php echo $row['estado']; ?>" readonly>
+      </div>
+     </div> -->
 
 
       <div class="form-group">
         <div class=" col-xs-1 col-md-1 col-md-offset-1">
-          <input class="btn btn-success" type="submit" value="Aceptar" />
+          <input class="btn btn-success" type="submit" value="Confirmar" />
           <!-- <button type="submit" class="btn btn-success" name="button"><span class="glyphicon glyphicon-send"> Registrar</button> -->
         </div>
 

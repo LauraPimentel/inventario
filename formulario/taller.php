@@ -12,21 +12,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Alumnos Registrados</title>
+    <title>Talleres</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
     <link rel="stylesheet" href="../css/flexboxgrid.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/tablas.css">
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/sistema.css">
   </head>
   <body>
 
     <header>
       <div class="container">
-        <h1 class="center-md">SISTEMA DE REGISTRO</h1>
+          <h1 class="center-md">Talleres</h1>
       </div>
     </header>
+
     <div class="menu">
       <nav class="navbar navbar-default navbar-static-top fixed" role="navigation">
         <div class="container">
@@ -142,63 +142,84 @@
         </div>
       </nav>
     </div>
-    <!-- <div class="container"> -->
 
-      <div class="table-responsive">
-      <table class="table table-bordered table-hover table-condensed">
-        <thead>
-          <tr class="warning">
-            <!-- <th colspan="1"><a href="../formulario/insertar_usuario_admin.php">Nuevo</a></th>
-            <th colspan="2">
-              <form class="navbar-form navbar-left" role="search" action="../tablas/busqueda_alum.php" method="post">
-                 <div class="form-group">
-                   <input type="text" class="form-control" name="nombre" value="" placeholder="Buscar...">
-                 </div>
-               </form>
+    <div class="container">
+    <br>
+      <form class="form-horizontal " action="../procesos/taller_pro.php" method="post">
 
-            </th> -->
-            <th colspan="6">Alumnos Registrados</th>
-          </tr>
-        </thead>
-      <tr class="success">
-        <th>ID</th>
-        <th>Usuario</th>
-        <th>Rango</th>
+        <div class="form-group">
+          <label for="clave" class="control-label col-md-1 ">Clave:</label>
+          <div class="col-md-2">
+            <input type="text" name="clave" class="form-control" maxlength="4" REQUIRED>
+          </div>
+        </div>
 
-        <th colspan="1">Operaciones</th>
-      </tr>
+        <div class="form-group">
+          <label for="taller" class="control-label col-md-1 ">Taller:</label>
+          <div class="col-md-2">
+            <input type="text" name="taller" class="form-control" REQUIRED>
+          </div>
 
-          <?php
-            include("../procesos/conexion.php");
+          <label for="lugar" class="control-label col-md-2 ">Lugar:</label>
+          <div class="col-md-2">
+            <input type="text" name="lugar" class="form-control" REQUIRED>
+          </div>
 
-            $query1 = "SELECT * FROM usuarios";
-            $resultados = $conexion->query($query1);
-            while($row = $resultados->fetch_assoc()){
+          <label for="fecha" class="control-label col-md-2 ">Fecha:</label>
+          <div class="col-md-2">
+            <input type="date" name="fecha" class="form-control" REQUIRED>
+          </div>
 
-              ?>
+        </div>
 
-              <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo utf8_encode($row['usuario']);?></td>
-                <th><?php echo utf8_encode($row['tipo_usu']);?></th>
-                <td><a href="../procesos/eliminar_usuario.php?id=<?php echo $row['id']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
+        <div class="form-group">
+          <label for="hora" class="control-label col-md-1 ">Hora:</label>
+          <div class="col-md-2">
+            <input type="time" name="hora" class="form-control" REQUIRED>
+          </div>
+
+          <label for="tallerista" class="control-label col-md-2 ">Tallerista:</label>
+          <div class="col-md-3">
+            <input type="text" name="tallerista" class="form-control" REQUIRED>
+          </div>
+
+          <label for="capacidad" class="control-label col-md-2 ">Capacidad:</label>
+          <div class="col-md-1">
+            <input type="text" name="capacidad" class="form-control" REQUIRED>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="hora_ter" class="control-label col-md-1 ">Terminación:</label>
+          <div class="col-md-2">
+            <input type="time" name="hora_ter" class="form-control" REQUIRED>
+          </div>
+
+          <label for="imagen" class="control-label col-md-1 ">Imagen:</label>
+          <div class="col-md-2">
+            <input type="text" name="imagen" class="form-control" REQUIRED>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class=" col-xs-1 col-md-1 col-md-offset-1">
+            <input class="btn btn-success" type="submit" value="Registrar" />
+            <!-- <button type="submit" class="btn btn-success" name="button"><span class="glyphicon glyphicon-send"> Registrar</button> -->
+          </div>
+
+          <div class=" col-xs-1 col-md-1 pull-right">
+            <a href="../inicio_admin.php" class="btn btn-danger">Cancelar</a>
+          </div>
 
 
-              <?php
+        </div>
 
-            }
-          ?>
+      </form>
 
-     </table>
-
-    </div>
-
-  <!-- </div> -->
-<br>
-    <a href="../inicio_admin.php" class="btn btn-primary col-md-offset-5">Regresar</a>
     </div>
 
   </body>
   <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+ <script src="../js/bootstrap.min.js"></script>
 </html>

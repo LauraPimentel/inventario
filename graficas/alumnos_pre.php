@@ -1,5 +1,13 @@
 <?php
 require_once('../procesos/conexion.php');
+session_start();
+if (isset($_SESSION['usuario'])) {
+
+}
+else{
+  header("location:../sesion_admin.html");
+}
+
  ?>
 
 <!DOCTYPE html>
@@ -16,6 +24,7 @@ require_once('../procesos/conexion.php');
     <link rel="shortcut icon" href="../favicon.ico">
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <style type="text/css">
+
 ${demo.css}
 		</style>
 		<script type="text/javascript">
@@ -52,12 +61,15 @@ $(function () {
             data: [
 
               <?php
-              $sql = "SELECT taller FROM talleres";
+              $sql = "SELECT taller FROM jornada1";
               $resultado = $conexion->query($sql);
               $consulta = "(SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Bootstrap' OR taller_2 = 'Bootstrap' OR taller_3 = 'Bootstrap') UNION
               (SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Angular' OR taller_2 = 'Angular' OR taller_3 = 'Angular') UNION
               (SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Tienda En Drupal' OR taller_2 = 'Tienda En Drupal' OR taller_3 = 'Tienda En Drupal') UNION
-              (SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Programacion En Android' OR taller_2 = 'Programacion En Android' OR taller_3 = 'Programacion En Android')";
+              (SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Servidores' OR taller_2 = 'Servidores' OR taller_3 = 'Servidores') UNION
+              (SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Arduino' OR taller_2 = 'Arduino' OR taller_3 = 'Arduino') UNION
+              (SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Proxmox' OR taller_2 = 'Proxmox' OR taller_3 = 'Proxmox') UNION
+              (SELECT COUNT(*) as Inscritos FROM datos_alum WHERE taller_1 = 'Laravel' OR taller_2 = 'Laravel' OR taller_3 = 'Laravel')";
               $resultado2 = $conexion->query($consulta);
               while(($row = $resultado->fetch_assoc()) && ($nuevo = $resultado2->fetch_assoc())){
 
@@ -88,10 +100,10 @@ $(function () {
     <script src="material/js/highcharts-3d.js"></script>
     <script src="material/js/modules/exporting.js"></script>
 
+
     <div id="container" style="height: 400px"></div>
 
 
   </body>
-  <script src="js/jquery.js"></script>
- <script src="js/bootstrap.min.js"></script>
+
 </html>

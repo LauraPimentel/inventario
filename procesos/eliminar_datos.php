@@ -6,7 +6,9 @@
   $consulta = "DELETE FROM datos_alum WHERE RFC = '$RFC'";
   $resultado = $conexion->query($consulta);
 
+
   if ($resultado) {
+
     echo '<script>
       alert("Dato Eliminado");
       window.history.go(-1);

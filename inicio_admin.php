@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  include("procesos/funcion.php");
+  verificar_sesion();
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +16,22 @@
     <link rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
+
+    <?php
+
+   $usuario = $_SESSION['usuario'];
+
+
+   include("procesos/conexion.php");
+
+
+   $query = "SELECT usuario FROM usuarios WHERE usuario = '$usuario'";
+   $resultado = $conexion->query($query);
+
+   $row=$resultado->fetch_assoc();
+
+
+   ?>
 
     <header>
       <div class="container">
@@ -46,9 +67,9 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="formulario/taller.html">Taller</a></li>
+                  <li><a href="formulario/taller.php">Taller</a></li>
                   <li class="divider"></li>
-                  <li><a href="formulario/conferencia.html">Conferencia</a></li>
+                  <li><a href="formulario/conferencia.php">Conferencia</a></li>
                   <li class="divider"></li>
                   <li><a href="formulario/insertar_usuario_admin.php">Alumno</a></li>
                   <li class="divider"></li>
@@ -117,17 +138,22 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#"class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-user">
+                   <?php echo $_SESSION['usuario']; ?>
+                </a>
 
-              <li><a href="sesion_admin.html">Salir</a></li>
+                <ul class="dropdown-menu" role="menu">
+
+                  <li><a href="procesos/destroy.php">Salir</a></li>
+                </ul>
+              </li>
             </ul>
           </div>
 
         </div>
       </nav>
     </div>
-
-
-
 
 
   </body>
