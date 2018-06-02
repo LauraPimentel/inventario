@@ -56,13 +56,13 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="taller.php">Taller</a></li>
+                  <li><a href="../formulario/taller.php">Taller</a></li>
                   <li class="divider"></li>
-                  <li><a href="conferencia.html">Conferencia</a></li>
+                  <li><a href="../formulario/conferencia.php">Conferencia</a></li>
                   <li class="divider"></li>
-                  <li><a href="insertar_usuario_admin.php">Alumno</a></li>
+                  <li><a href="../formulario/insertar_usuario_admin.php">Alumno</a></li>
                   <li class="divider"></li>
-                  <li><a href="tipo_usuario.php">Administrador</a></li>
+                  <li><a href="../formulario/tipo_usuario.php">Administrador</a></li>
                 </ul>
               </li>
 
@@ -88,13 +88,13 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="para_gafete.php" target="_blank">Gafetes</a></li>
+                  <li><a href="../formulario/para_gafete.php" target="_blank">Gafetes</a></li>
                   <li class="divider"></li>
                   <li><a href="../procesos/imprimir/alumnos_inscritos.php" target="_blank">Alumnos Inscritos</a></li>
 
                   <!-- <li><a href="#">Alumnos por taller</a></li> -->
                   <li class="divider"></li>
-                  <li><a href="preregistro.php" target="_blank">Preregistro</a></li>
+                  <li><a href="../formulario/preregistro.php" target="_blank">Preregistro</a></li>
                   <li class="divider"></li>
                   <li><a href="../procesos/imprimir/jornada1.php" target="_blank">Jornada 1</a></li>
                   <li class="divider"></li>
@@ -146,12 +146,12 @@
     <!-- <div class="container"> -->
 
       <div class="table-responsive">
-
+<h1>Jornada 1</h1>
       <table class="table table-bordered table-hover table-condensed">
         <thead>
           <tr class="warning">
-            <th colspan="1"><a href="#">Nuevo</a></th>
-            <th colspan="1"><a href="#">Buscar</a></th>
+            <!-- <th colspan="1"><a href="#">Nuevo</a></th>
+            <th colspan="1"><a href="#">Buscar</a></th> -->
             <th colspan="10">Talleres Registrados</th>
           </tr>
         </thead>
@@ -164,25 +164,27 @@
         <th>Hora_ter</th>
         <th>Tallerista</th>
         <th>Capacidad</th>
-        <th>Inscritos</th>
+        <!-- <th>Inscritos</th> -->
         <th colspan="2">Operaciones</th>
       </tr>
 
           <?php
             include("../procesos/conexion.php");
-            $query = "SELECT * FROM talleres";
-            $resultado = $conexion->query($query);
-            $consulta = "(SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Bootstrap' OR taller_2 = 'Bootstrap' OR taller_3 = 'Bootstrap') UNION
-            (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Angular' OR taller_2 = 'Angular' OR taller_3 = 'Angular') UNION
-            (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Tienda En Drupal' OR taller_2 = 'Tienda En Drupal' OR taller_3 = 'Tienda En Drupal') UNION
-            (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Programacion En Android' OR taller_2 = 'Programacion En Android' OR taller_3 = 'Programacion En Android')";
+            // $query = "SELECT * FROM talleres";
+            // $resultado = $conexion->query($query);
+            $consulta = "SELECT * FROM jornada1";
+            // $consulta = "(SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Bootstrap' OR taller_2 = 'Bootstrap' OR taller_3 = 'Bootstrap') UNION
+            // (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Angular' OR taller_2 = 'Angular' OR taller_3 = 'Angular') UNION
+            // (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Tienda En Drupal' OR taller_2 = 'Tienda En Drupal' OR taller_3 = 'Tienda En Drupal') UNION
+            // (SELECT COUNT(*) as Inscritos FROM lista_oficial WHERE taller_1 = 'Programacion En Android' OR taller_2 = 'Programacion En Android' OR taller_3 = 'Programacion En Android')";
             $resultado2 = $conexion->query($consulta);
-            while(($row = $resultado->fetch_assoc()) && ($nuevo = $resultado2->fetch_assoc())){
+            // while(($row = $resultado->fetch_assoc()) && ($nuevo = $resultado2->fetch_assoc()))
+            while($row = $resultado2->fetch_assoc()){
 
               ?>
 
 
-              <tr>
+              <tr class="success">
 
                 <th><?php echo utf8_encode($row['clave']);?></th>
                 <th><?php echo utf8_encode($row['taller']);?></th>
@@ -192,9 +194,9 @@
                 <td><?php echo utf8_encode($row['hora_ter']);?></td>
                 <td><?php echo utf8_encode($row['tallerista']);?></td>
                 <td><?php echo utf8_encode($row['capacidad']);?></td>
-                <td><?php echo $nuevo['Inscritos'] ?></td>
-                <td><a href="../formulario/editar_taller.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-info btn-block">Modificar</a></td>
-                <td><a href="../formulario/eliminar_taller.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-danger btn-block">Eliminar</a></td>
+                <!-- <td><?php echo $nuevo['Inscritos'] ?></td> -->
+                <td><a href="../formulario/editar_taller_jor1.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-info btn-block">Modificar</a></td>
+                <td><a href="../procesos/eliminar_taller_jor1.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-danger btn-block">Eliminar</a></td>
 
               </tr>
 
@@ -204,6 +206,124 @@
           ?>
 
      </table>
+
+
+
+     <!-- jornada 2 -->
+<h1>Jornada 2</h1>
+     <table class="table table-bordered table-hover table-condensed">
+       <thead>
+         <tr class="warning">
+           <!-- <th colspan="1"><a href="#">Nuevo</a></th>
+           <th colspan="1"><a href="#">Buscar</a></th> -->
+           <th colspan="10">Talleres Registrados</th>
+         </tr>
+       </thead>
+     <tr class="success">
+       <th>Clave</th>
+       <th>Taller</th>
+       <th>Lugar</th>
+       <th>Fecha</th>
+       <th>Hora</th>
+       <th>Hora_ter</th>
+       <th>Tallerista</th>
+       <th>Capacidad</th>
+       <!-- <th>Inscritos</th> -->
+       <th colspan="2">Operaciones</th>
+     </tr>
+
+         <?php
+           include("../procesos/conexion.php");
+
+           $consulta2 = "SELECT * FROM jornada2";
+
+           $resultado3 = $conexion->query($consulta2);
+
+           while($row = $resultado3->fetch_assoc()){
+
+             ?>
+
+
+             <tr class="success">
+
+               <th><?php echo utf8_encode($row['clave']);?></th>
+               <th><?php echo utf8_encode($row['taller']);?></th>
+               <td><?php echo utf8_encode($row['lugar']);?></td>
+               <td><?php echo utf8_encode($row['fecha']);?></td>
+               <td><?php echo utf8_encode($row['hora']);?></td>
+               <td><?php echo utf8_encode($row['hora_ter']);?></td>
+               <td><?php echo utf8_encode($row['tallerista']);?></td>
+               <td><?php echo utf8_encode($row['capacidad']);?></td>
+               <!-- <td><?php echo $nuevo['Inscritos'] ?></td> -->
+               <td><a href="../formulario/editar_taller_jor2.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-info btn-block">Modificar</a></td>
+               <td><a href="../formulario/eliminar_taller_jor2.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-danger btn-block">Eliminar</a></td>
+
+             </tr>
+
+             <?php
+
+           }
+         ?>
+
+    </table>
+
+    <!-- jornada 3 -->
+<h1>Jornada 3</h1>
+    <table class="table table-bordered table-hover table-condensed">
+      <thead>
+        <tr class="warning">
+          <!-- <th colspan="1"><a href="#">Nuevo</a></th>
+          <th colspan="1"><a href="#">Buscar</a></th> -->
+          <th colspan="10">Talleres Registrados</th>
+        </tr>
+      </thead>
+    <tr class="success">
+      <th>Clave</th>
+      <th>Taller</th>
+      <th>Lugar</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Hora_ter</th>
+      <th>Tallerista</th>
+      <th>Capacidad</th>
+      <!-- <th>Inscritos</th> -->
+      <th colspan="2">Operaciones</th>
+    </tr>
+
+        <?php
+          include("../procesos/conexion.php");
+
+          $consulta3 = "SELECT * FROM jornada3";
+
+          $resultado4 = $conexion->query($consulta3);
+
+          while($row = $resultado4->fetch_assoc()){
+
+            ?>
+
+
+            <tr class="success">
+
+              <th><?php echo utf8_encode($row['clave']);?></th>
+              <th><?php echo utf8_encode($row['taller']);?></th>
+              <td><?php echo utf8_encode($row['lugar']);?></td>
+              <td><?php echo utf8_encode($row['fecha']);?></td>
+              <td><?php echo utf8_encode($row['hora']);?></td>
+              <td><?php echo utf8_encode($row['hora_ter']);?></td>
+              <td><?php echo utf8_encode($row['tallerista']);?></td>
+              <td><?php echo utf8_encode($row['capacidad']);?></td>
+              <!-- <td><?php echo $nuevo['Inscritos'] ?></td> -->
+              <td><a href="../formulario/editar_taller_jor3.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-info btn-block">Modificar</a></td>
+              <td><a href="../formulario/eliminar_taller_jor3.php?clave=<?php echo $row['clave']; ?>" class="btn btn-md btn-danger btn-block">Eliminar</a></td>
+
+            </tr>
+
+            <?php
+
+          }
+        ?>
+
+   </table>
 
     </div>
   <!-- </div> -->

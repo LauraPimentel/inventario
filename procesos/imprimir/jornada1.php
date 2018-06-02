@@ -28,8 +28,7 @@
           <th>Apellido Paterno</th>
           <th>Apellido Materno</th>
           <th>Taller 1</th>
-          <th>Taller 2</th>
-          <th>Taller 3</th>
+
           <th>Conferencia</th>
           <th>Institución</th>
           <th>E-mail</th>
@@ -46,8 +45,7 @@
                   <td class="unit">'.$datos['apellido_p'].'</td>
                   <td class="qty">'.$datos['apellido_m'].'</td>
                   <td class="total">'.$datos['taller_1'].'</td>
-                  <td>'.$datos['taller_2'].'</td>
-                  <td>'.$datos['taller_3'].'</td>
+                  
                   <td>'.$datos['conferencia'].'</td>
                   <td>'.$datos['insti_proce'].'</td>
                   <td>'.$datos['mail'].'</td>

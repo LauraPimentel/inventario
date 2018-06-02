@@ -51,7 +51,7 @@
 
     <div class="container">
 
-<!-- Talleres -->
+<!-- Talleres Jornada1 -->
 
       <?php
       include("procesos/conexion.php");
@@ -69,6 +69,7 @@
                  <h4><?php echo utf8_encode( $row['tallerista']); ?></h4>
                  <p>Fecha: <?php echo $row['fecha']; ?></p>
                  <p>Lugar: <?php echo $row['lugar']; ?></p>
+                 <p>Hora: <?php echo $row['hora']; ?></p>
                  <a href="../procesos/detalles_todos.php?ID_pro=<?php echo $row['ID_pro']; ?>" class="btn btn-info">Ver detalles</a>
                 </div>
               </div>
@@ -77,6 +78,63 @@
         <?php
       }
     ?>
+
+
+    <!-- Talleres Jornada2 -->
+
+          <?php
+          include("procesos/conexion.php");
+          $query = "SELECT * FROM jornada2";
+          $resultado = $conexion->query($query);
+
+          while($row = $resultado->fetch_assoc()){
+            ?>
+
+              <div class="col-xs-6 col-md-3">
+                  <div class="thumbnail">
+                    <img src="<?php echo $row['imagen']; ?>">
+                    <div class="caption">
+                    <h5><?php echo utf8_encode($row['taller']);?></h5>
+                     <h4><?php echo utf8_encode( $row['tallerista']); ?></h4>
+                     <p>Fecha: <?php echo $row['fecha']; ?></p>
+                     <p>Lugar: <?php echo $row['lugar']; ?></p>
+                     <p>Hora: <?php echo $row['hora']; ?></p>
+                     <a href="../procesos/detalles_todos.php?ID_pro=<?php echo $row['ID_pro']; ?>" class="btn btn-info">Ver detalles</a>
+                    </div>
+                  </div>
+               </div>
+
+            <?php
+          }
+        ?>
+
+        <!-- Talleres Jornada3 -->
+
+              <?php
+              include("procesos/conexion.php");
+              $query = "SELECT * FROM jornada3";
+              $resultado = $conexion->query($query);
+
+              while($row = $resultado->fetch_assoc()){
+                ?>
+
+                  <div class="col-xs-6 col-md-3">
+                      <div class="thumbnail">
+                        <img src="<?php echo $row['imagen']; ?>">
+                        <div class="caption">
+                        <h5><?php echo utf8_encode($row['taller']);?></h5>
+                         <h4><?php echo utf8_encode( $row['tallerista']); ?></h4>
+                         <p>Fecha: <?php echo $row['fecha']; ?></p>
+                         <p>Lugar: <?php echo $row['lugar']; ?></p>
+                         <p>Hora: <?php echo $row['hora']; ?></p>
+                         <a href="../procesos/detalles_todos.php?ID_pro=<?php echo $row['ID_pro']; ?>" class="btn btn-info">Ver detalles</a>
+                        </div>
+                      </div>
+                   </div>
+
+                <?php
+              }
+            ?>
 
 <!-- Conferencias -->
 
@@ -104,6 +162,7 @@ while($row = $resultado->fetch_assoc()){
   <?php
 }
 ?>
+
 
 
         <!-- <div class="botones">

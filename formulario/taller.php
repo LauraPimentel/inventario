@@ -57,7 +57,7 @@
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="taller.php">Taller</a></li>
                   <li class="divider"></li>
-                  <li><a href="conferencia.html">Conferencia</a></li>
+                  <li><a href="conferencia.php">Conferencia</a></li>
                   <li class="divider"></li>
                   <li><a href="insertar_usuario_admin.php">Alumno</a></li>
                   <li class="divider"></li>
@@ -87,13 +87,13 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="para_gafete.php" target="_blank">Gafetes</a></li>
+                  <li><a href="../formulario/para_gafete.php" target="_blank">Gafetes</a></li>
                   <li class="divider"></li>
                   <li><a href="../procesos/imprimir/alumnos_inscritos.php" target="_blank">Alumnos Inscritos</a></li>
 
                   <!-- <li><a href="#">Alumnos por taller</a></li> -->
                   <li class="divider"></li>
-                  <li><a href="preregistro.php" target="_blank">Preregistro</a></li>
+                  <li><a href="../formulario/preregistro.php" target="_blank">Preregistro</a></li>
                   <li class="divider"></li>
                   <li><a href="../procesos/imprimir/jornada1.php" target="_blank">Jornada 1</a></li>
                   <li class="divider"></li>
@@ -200,6 +200,14 @@
           <div class="col-md-2">
             <input type="text" name="imagen" class="form-control" REQUIRED>
           </div>
+
+          <label for="jornada" class="control-label col-md-1 ">Jornada:</label>
+          <select class="form-control col-md-3" name="jornada" REQUIRED>
+            <option value="0">Selección:</option>
+            <option value="Jornada1">Jornada 1</option>
+            <option value="Jornada2">Jornada 2</option>
+            <option value="Jornada3">Jornada 3</option>
+          </select>
         </div>
 
         <div class="form-group">

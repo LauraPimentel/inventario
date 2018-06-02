@@ -161,31 +161,31 @@
 
   <div class="container">
 
-  <form class="form-horizontal" action="../procesos/datos_pro.php" method="post">
+  <form class="form-horizontal" action="../procesos/datos_pro_admin.php" method="post">
 
 
 
       <div class="form-group">
         <label for="RFC" class="control-label col-md-1 ">RFC:</label>
         <div class="col-md-3">
-          <input type="text" name="RFC" class="form-control" maxlength="13" REQUIRED>
+          <input type="text" style="text-transform:uppercase;" name="RFC" class="form-control" maxlength="13" REQUIRED>
         </div>
       </div>
 
       <div class="form-group">
         <label for="nombre" class="control-label col-md-1 ">Nombre:</label>
         <div class="col-md-2">
-          <input type="text" name="nombre" class="form-control" REQUIRED>
+          <input type="text" style="text-transform:capitalize;" name="nombre" class="form-control" REQUIRED>
         </div>
 
         <label for="apellido_p" class="control-label col-md-2 ">Apellido Paterno:</label>
         <div class="col-md-2">
-          <input type="text" name="apellido_p" class="form-control" REQUIRED>
+          <input type="text" style="text-transform:capitalize;" name="apellido_p" class="form-control" REQUIRED>
         </div>
 
         <label for="apellido_m" class="control-label col-md-2 ">Apellido Materno:</label>
         <div class="col-md-2">
-          <input type="text" name="apellido_m" class="form-control" REQUIRED>
+          <input type="text" style="text-transform:capitalize;" name="apellido_m" class="form-control" REQUIRED>
         </div>
 
       </div>

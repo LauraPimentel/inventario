@@ -1,4 +1,20 @@
 <?php
+
+include("procesos/conexion.php");
+$consulta = "SELECT jornada3.taller,jornada3_alumnos.taller_3, count(*) AS Inscritos FROM jornada3,jornada3_alumnos WHERE jornada3.taller=jornada3_alumnos.taller_3 GROUP BY taller";
+$resultado2 = $conexion->query($consulta);
+while($nuevo = $resultado2->fetch_assoc()){
+
+?>
+
+['<?php echo $nuevo['taller']; ?>',  <?php echo $nuevo['Inscritos'] ?>],
+
+<?php
+
+}
+?>
+-----------------------------------------------------------------------------------------------------------------------------------------------
+<?php
 $taller_1 = 'Angular';
 include('procesos/conexion.php');
 $consulta = "UPDATE jornada1 SET capacidad = capacidad + 1 WHERE taller = '$taller_1'";

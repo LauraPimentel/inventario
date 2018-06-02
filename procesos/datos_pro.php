@@ -45,7 +45,22 @@
   $contenido = "Nombre: ".strtoupper($nombre)." ".strtoupper($apellido_p)." ".strtoupper($apellido_m)."\nLos talleres seleccionados son: ".$taller_1.", " .$taller_2.", " .$taller_3."\nLa conferencia es: ".$conferencia."\nCuenta con un lapso de 3 días para hacer su depósito. En la cuenta 6342810340 BANCO SANTANDER.
   Haber realizado este tramite no garantiza su lugar en el congreso, debe realizar el depósito y pasar a las instalaciones educativas para canjear su bauche, de esta manera usted quedará registrado";
 
+  $verificar_rfc = mysqli_query($conexion, "SELECT RFC FROM datos_alum WHERE RFC = '$RFC'");
+
   // Verificar correo
+
+  if (mysqli_num_rows($verificar_rfc) > 0) {
+    echo ' <script>
+
+           alert("El RFC ya está resgistrado, intente de nuevo");
+            window.history.go(-1);
+
+           </script>';
+
+
+   exit;
+  }
+
   if($mail==$conf_mail){
     $resultado = mysqli_query($conexion, $consulta);
     $resultadojor = mysqli_query($conexion, $jornada_1);

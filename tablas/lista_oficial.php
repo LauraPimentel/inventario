@@ -56,13 +56,13 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="taller.php">Taller</a></li>
+                  <li><a href="../formulario/taller.php">Taller</a></li>
                   <li class="divider"></li>
-                  <li><a href="conferencia.html">Conferencia</a></li>
+                  <li><a href="../formulario/conferencia.html">Conferencia</a></li>
                   <li class="divider"></li>
-                  <li><a href="insertar_usuario_admin.php">Alumno</a></li>
+                  <li><a href="../formulario/insertar_usuario_admin.php">Alumno</a></li>
                   <li class="divider"></li>
-                  <li><a href="tipo_usuario.php">Administrador</a></li>
+                  <li><a href="../formulario/tipo_usuario.php">Administrador</a></li>
                 </ul>
               </li>
 
@@ -88,13 +88,13 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="para_gafete.php" target="_blank">Gafetes</a></li>
+                  <li><a href="../formulario/para_gafete.php" target="_blank">Gafetes</a></li>
                   <li class="divider"></li>
                   <li><a href="../procesos/imprimir/alumnos_inscritos.php" target="_blank">Alumnos Inscritos</a></li>
 
                   <!-- <li><a href="#">Alumnos por taller</a></li> -->
                   <li class="divider"></li>
-                  <li><a href="preregistro.php" target="_blank">Preregistro</a></li>
+                  <li><a href="../formulario/preregistro.php" target="_blank">Preregistro</a></li>
                   <li class="divider"></li>
                   <li><a href="../procesos/imprimir/jornada1.php" target="_blank">Jornada 1</a></li>
                   <li class="divider"></li>
@@ -167,6 +167,7 @@
         <th>E-mail</th>
         <th>Hora Registro</th>
         <th>Fecha Registro</th>
+        <th>Operaciones</th>
 
       </tr>
 
@@ -191,7 +192,7 @@
                 <td><?php echo utf8_encode($row['mail']);?></td>
                 <td><?php echo utf8_encode($row['hora_registro']);?></td>
                 <td><?php echo utf8_encode($row['fecha_registro']);?></td>
-
+                <td><a href="../formulario/para_gafete.php?RFC=<?php echo $row['RFC']; ?>" class="btn btn-primary"><span class="glyphicon glyphicon-save-file"></span></a></td>
 
               </tr>
 
@@ -330,8 +331,8 @@
     <form class="" action="../procesos/imprimir/lista_oficial_pdf.php" method="post">
         <div class="form-group">
           <div class=" col-xs-1 col-md-1  col-md-offset-4">
-
-            <button type="submit" class="btn btn-primary" name="button">Generar PDF</button>
+<!--
+            <button type="submit" class="btn btn-primary" name="button">Generar PDF</button> -->
 
         </div>
 

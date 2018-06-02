@@ -4,32 +4,38 @@
 
   include("../conexion.php");
   $RFC= $_REQUEST['RFC'];
-  $query = "SELECT RFC, nombre, apellido_p,apellido_m,insti_proce FROM lista_oficial WHERE RFC = '$RFC'";
+  $nombre = $_POST['nombre'];
+  $apellido_p = $_POST['apellido_p'];
+  $apellido_m = $_POST['apellido_m'];
+  $insti_proce = $_POST['insti_proce'];
+  $conferencia = $_POST['conferencia'];
+  $taller_1 = $_POST['taller_1'];
+  $taller_2 = $_POST['taller_2'];
+  $taller_3 = $_POST['taller_3'];
+  $conferencia = $_POST['conferencia'];
+  // $query = "SELECT RFC, nombre, apellido_p,apellido_m,insti_proce FROM lista_oficial WHERE RFC = '$RFC'";
   ini_set('date.timezone', 'America/Mexico_City');
   $fecha = date('d-m-Y', time());
-  $prepare = $conexion->prepare($query);
-  $prepare->execute();
-  $resulSet = $prepare->get_result();
-  while($datos[] = $resulSet->fetch_array());
-  $resulSet->close();
-  $prepare->close();
-  $conexion->close();
+  // $prepare = $conexion->prepare($query);
+  // $prepare->execute();
+  // $resulSet = $prepare->get_result();
+  // while($datos[] = $resulSet->fetch_array());
+  // $resulSet->close();
+  // $prepare->close();
+  // $conexion->close();
 
 
   $html = '<main>
 
-    <h1  class="clearfix">Gafete</h1>
+    <h1>Gafete</h1>
+    <p>RFC: '.$RFC.'</p>
+    <p>Nombre: '.$nombre.' '.$apellido_p.' '.$apellido_m.'</p>
+    <p>Procedencia: '.$insti_proce.'</p>
+
+    <p>Conferencia: '.$conferencia.'</p>
   ';
 
-  foreach ($datos as $datos) {
-    $html .= '
-            <p>RFC: '.$datos['RFC'].'</p>
-            <p>Nombre: '.$datos['nombre'].'</p>
-            <p>Apellidos: '.$datos['apellido_p'].' '.$datos['apellido_m'].'</p>
-            <p>Institución: '.$datos['insti_proce'].'</p>
-              ';
 
-  }
 
 
   $mpdf = new mPDF('c', 'A7');

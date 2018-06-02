@@ -129,7 +129,10 @@
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="graficas/alumnos_pre.php">Alumnos Pregistrados</a></li>
+                  <p>Alumnos Preregistrados</p>
+                  <li><a href="graficas/alumnos_pre_jor1.php">Jornada 1</a></li>
+                  <li><a href="graficas/alumnos_pre_jor2.php">Jornada 2</a></li>
+                  <li><a href="graficas/alumnos_pre_jor3.php">Jornada 3</a></li>
                   <li class="divider"></li>
                   <li><a href="graficas/alumnos_taller.php">Alumnos Registrados</a></li>
                 </ul>
